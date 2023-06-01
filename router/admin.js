@@ -2,6 +2,6 @@ const { Router } = require("express");
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.send("hola");
+  res.render("admin/dashboard");
 });
 module.exports = router;

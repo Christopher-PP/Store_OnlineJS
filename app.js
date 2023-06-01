@@ -37,7 +37,8 @@ app.use("/", require("./router/webRutas"));
 app.use((req, res, next) => {
   res.status(404).render("404", {
     Tittle: "404",
-    descripcion: "Error esta pagina no existe",
+    descripcion: "Look like you're lost",
+    message: "the page you are looking for not available!",
   });
 });
 

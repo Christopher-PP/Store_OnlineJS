@@ -1,5 +1,7 @@
+/* ======navbar start====== */
 /*Google Font Import Poppins*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* ===============globals=========== */
 *{
   font-family: 'Poppins', sans-serif;
   margin:0;
@@ -14,15 +16,52 @@
   --primary-color-light:#F6F5FF;
   --toggle-color:#DDD;
   --text-color:#707070;
+  --shadow-cards-content:0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  --shadow-cards-selected:0 3px 6px rgba(0, 0, 0, 0.16),0 3px 6px rgba(0, 0, 0, 0.23);
+  --text-color2: #242526;
+  --Tittle-color:#242526;
 
+  /* ======Porfile settings====== */
+  --primary-porfile-bg:#171717;
+  --secondary-porfile-bg:#262626;
+  --acent-porfile-bg:#4F46E5;
+
+  --primary-porfile-color:#FFF;
+  --secondary-porfile-color:rgba(255,255,255,70%);
+  --acent-porfile-color:#818cf8;
+
+  --border-porfile-color:rgba(255,255,255,30%);
+/* =====Cards defaults==== */
+  --card-color-dashboard:#f5f5f5;
+  --card-color-dashboard-selected: #695af1;
+  --text-card-color:#3c20da;
+  --shadow-card-dashboard:0 7px 25px rgba(0,0,0,0.08);
+  --shadow-card-dashboard-selected: 0 7px 25px rgba(0, 0, 0, 0.01);
+  --table-border: 1px solid rgba(0, 0, 0, 0.1);
+  /* =====Cards defaults==== */
+  --username-size:32px;
+  --tittle-size:28px;
+  --subtitle:24px;
   /*======Transitions =========*/
   --tran-02: all 0.2s ease;
   --tran-03: all 0.3s ease;
   --tran-04: all 0.4s ease;
   --tran-05: all 0.5s ease;
+  --tran-06: all 0.6s ease;
+  /* ======Status====== */
+  --status-1:#00ff15;
+  --status-2:#ff0000;
+  --status-3:#ff8800;
+  --status-4:#059ff8;
+  /* =====Neutral colors==== */
+  --white:#fff;
+  --black:#222222;
+
 }
 body{
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
   background: var(--body-color);
   transition: var(--tran-04);
 }
@@ -33,6 +72,18 @@ body.dark{
   --primary-color-light: #3A3B3C;
   --toggle-color: #FFF;
   --text-color: #CCC;
+  --shadow-cards-content: 0 14px 28px rgba(255, 255, 255, 0.25),
+      0 10px 10px rgba(255, 255, 255, 0.22);
+    --shadow-cards-selected: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+    --text-color2: #faf2f2;
+    --Tittle-color: #f3e4e4;
+    /* =====Cards defaults==== */
+    --card-color-dashboard: #131379;
+    --card-color-dashboard-selected: #FFF;
+    --text-card-color:#75e442;
+    --shadow-card-dashboard: 0 7px 25px rgba(255, 255, 255, 0.08);
+    --shadow-card-dashboard-selected: 0 7px 25px rgba(255, 255, 255, 0.01);
+    --table-border:1px solid rgba(255,255,255,0.1);
 }
 /*=====Reusable CSS=====*/
 .sidebar .text{
@@ -41,10 +92,10 @@ body.dark{
   color: var(--text-color);
   transition: var(--tran-04);
   white-space: nowrap;
-  opacity: 1;
+  overflow: visible;
 }
 .sidebar.close .text{
-  opacity: 0;
+  overflow: hidden;
 }
 .sidebar .image{
   min-width: 60px;
@@ -253,4 +304,479 @@ body.dark .switch::before{
 .sidebar.close ~ .home{
   left: 88px;
   width: calc(100% - 88px);
+}
+/* ======navbar end====== */
+
+/* ======product card====== */
+
+
+.Product-name{
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+  padding-top: 10px;
+  color: var(--Tittle-color);
+}
+.galery{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+.content{
+  width: 20%;
+  margin: 15px;
+  box-sizing: border-box;
+  float: left;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  padding-top:10px;
+  box-shadow:var(--shadow-cards-content) ;
+  transition: var(--tran-04);
+  background: var(--body-color);
+}
+.content:hover{
+  box-shadow: var(--shadow-cards-content-selected);
+}
+.product-Img{
+  width: 180px;
+  height: 180px;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: block;
+}
+.Product-description{
+  text-align: center;
+  color: var(--text-color);
+  padding-top: 0 8px;
+  transition: var(--tran-04);
+}
+.Price{
+  font-size: 26px;
+  text-align: center;
+  color: var(--text-color);
+  margin: 0;
+  transition: var(--tran-04);
+}
+.Rating{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0 ;
+}
+.Rating li{
+  padding: 5px;
+
+}
+.fa{
+  font-size: 26px;
+  transition: var(--tran-04);
+}
+.fa.checked{
+  color:gold;
+}
+.fa:hover{
+  transform: scale(1.3);
+  transition: var(--tran-06);
+}
+.buy-btn{
+  text-align: center;
+  font-size: 24px;
+  color:var(--text-color2);
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin-top: 5px;
+  border-bottom-right-radius:20px ;
+  border-bottom-left-radius: 20px;
+  background: #2183A2;
+  transition: var(--tran-04);
+}
+.buy-btn:hover{
+  background-color: #0b556b;
+  color:var(--primary-color-light)
+}
+
+/* ======product card end====== */
+
+/* ======404 desing start====== */
+.frem{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  background: url('../img/popato-404.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.frem p{
+  position:absolute;
+  top: 4rem;
+  font-size: 7rem;
+  color: var(--text-color);
+}
+.frem h2{
+  position: absolute;
+  color: var(--text-color2);
+  bottom: 16rem;
+  font-size: 34px;
+}
+.frem h5{
+    position: absolute;
+    font-size: 2rem;
+    bottom: 14rem;
+    color: var(--text-color);
+}
+.frem a{
+  position: absolute;
+  bottom: 8rem;
+  font-size: 2rem;
+  background: linear-gradient(45deg,#ff0034,#ffbc00);
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+}
+.frem a:hover{
+  background: linear-gradient(45deg, #9b0523, #ca9501);
+  font-size: 1.8rem;
+}
+/* ======404 desing End====== */
+/* ===========Admin dashboard start ============== */
+.main{
+  position: absolute;
+  width: calc(100% - 89px);
+  left: 89px;
+  min-height: 100vh;
+  background:var(--sidebar-color);
+  transition: var(--tran-05);
+}
+.main.close{
+  width: calc(100% - 250px);
+  left: 250px;
+}
+.topbar{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.topbar .search{
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.topbar .search label{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.topbar .search label input{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding:5px 20px;
+  padding-left:35px ;
+  font-size: 18px;
+  outline: none;
+  background: var(--sidebar-color);
+  color:var(--text-color2);
+  border: 1px solid var(--text-color);
+}
+.topbar .search label i{
+  position: absolute;
+  bottom: -2px;
+  left: 10px;
+  font-size: 2rem;
+  color: var(--text-color2);
+}
+.user{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.user img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ========cards======= */
+.cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 30px;
+}
+.cardBox .card{
+  position: relative;
+  background: var(--card-color);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-card-dashboard); 
+  transition: var(--tran-04);
+}
+.cardBox .card .numbers{
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--text-card-color);
+  transition: var(--tran-04);
+}
+.cardBox .card .cardName{
+  color: var(--text-color);
+  font-size: 1.7rem;
+  margin-top: 5px;
+  transition: var(--tran-04);
+}
+.cardBox .card .iconBx{
+  font-size: 3.5rem;
+  color: var(--text-color);
+  padding-left: 15px;
+  transition: var(--tran-04);
+}
+
+.cardBox .card:hover{ 
+  background: var(--card-color-dashboard-selected);
+  box-shadow: var(--shadow-card-dashboard-selected);
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx{
+  color: var(--primary-color-light);
+}
+/* ======orders details list========= */
+.details{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 30px;
+
+}
+.details .recentOrders{
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  padding: 20px ;
+  box-shadow: var(--shadow-card-dashboard);
+  border-radius: 20px;
+}
+.details .cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cardHeader h2{
+  font-weight: 600;
+  color: var(--text-card-color);
+}
+.cardHeader .btn{
+  position: relative;
+  padding: 5px 10px;
+  background: var(--text-card-color);
+  text-decoration: none;
+  color: var(--sidebar-color);
+  border-radius: 6px;
+}
+.details table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.details table thead td{
+  font-weight: 600;
+}
+.details .recentOrders table tr{
+  color: var(--text-color2);
+  border-bottom: var(--table-border);
+}
+.details .recentOrders table tr:last-child{
+  border-bottom: none;
+}
+.details .recentOrders table tbody tr:hover {
+  background:var(--text-card-color);
+  color:var(--sidebar-color);
+}
+.details .recentOrders table tr td{
+  padding: 10px;
+}
+.details .recentOrders table tr td:last-child{
+  text-align: end;
+}
+.details .recentOrders table tr td:nth-child(2) {
+  text-align: end;
+}
+.details .recentOrders table tr td:nth-child(3) {
+  text-align: center;
+}
+.status.delivered{
+  padding: 2px 4px;
+  background: var(--status-1);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status.pending {
+  padding: 2px 4px;
+  background: var(--status-3);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status.return {
+  padding: 2px 4px;
+  background: var(--status-2);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status.inProgress{
+  padding: 2px 4px;
+  background: var(--status-4);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.recentCustomers{
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  padding: 20px;
+  background: var(--sidebar-color);
+  box-shadow: var(--shadow-card-dashboard);
+  border-radius: 20px;
+}
+.recentCustomers .imgbx{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.recentCustomers .imgbx img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recentCustomers table tr:hover{
+  background: var(--text-card-color);
+  color: var(--white);
+}
+/* .recentCustomers table tr:hover .imgbx img{
+  -webkit-filter: invert(1);
+    filter: invert(1);
+} */
+.recentCustomers table tr td{
+  padding: 12px 10px;
+}
+.recentCustomers table tr td h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2rem;
+  color: var(--text-color2);
+}
+.recentCustomers table tr:hover td h4{
+  color:var(--sidebar-color);
+}
+
+.recentCustomers table tr td h4 span{
+  font-size: 14px;
+  color: var(--text-color);
+}
+.recentCustomers table tr:hover td h4 span{
+  color: var(--sidebar-color);
+}
+/* ===========Admin dashboard end ============== */
+/* ======Responsive design======== */
+@media(max-width:991px){
+
+  .main.close{
+    left: 250px;
+  }
+  .main {
+    width: calc(100% - 89px);
+    left: 89px;
+  }
+  .cardBox{
+    width: 100% ;
+    grid-template-columns: repeat(2,1fr);
+    
+  }
+  .content {
+      width: 75%;
+    }
+}
+@media(max-width:768px){
+  .details{
+    grid-template-columns: 1fr;
+  }
+  .recentOrders{
+    overflow-x: auto;
+  }
+  .status.inProgress{
+    white-space: nowrap;
+  }
+  .content {
+      width: 85%;
+    }
+}
+@media(max-width:700px){
+    .cardBox {
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .cardHeader h2{
+      font-size: 20px;
+    }
+    .user{
+      min-width: 40px;
+    }
+}
+@media(max-width:480px) {
+  
+  .cardBox {
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .cardHeader h2 {
+    font-size: 20px;
+  }
+
+  .user {
+    min-width: 40px;
+  }
 }

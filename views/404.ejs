@@ -1,8 +1,14 @@
 <%- include('template/header.ejs',{Tittle:"404"}) %>
-  <h1>
-    <%=Tittle%>
-  </h1>
-
-  <p>
-    <%=descripcion%>
-  </p>
+  <div class="frem">
+    <p>
+      <%=Tittle%>
+    </p>
+    <h2>
+      <%=descripcion%>
+    </h2>
+    <h5>
+      <%= message%>
+    </h5>
+    <a href="/">Home page</a>
+  </div>
+  <%- include('./template/footer.ejs')%>
