@@ -54,10 +54,19 @@
   --status-2:#ff0000;
   --status-3:#ff8800;
   --status-4:#059ff8;
+  --status-5:rgb(255, 230, 0);
   /* =====Neutral colors==== */
   --white:#fff;
   --black:#222222;
 
+
+  /* =====Efects==== */
+  /* ===gradient=== */
+  --gradient1:linear-gradient(45deg, #ff0034, #ffbc00);
+  --gradient2:linear-gradient(45deg, #9b0523, #ca9501);
+  --gradient3:linear-gradient(60deg,transparent, #135be0, #06ccfd);
+  --gradient4: linear-gradient(60deg, transparent, #f70bcf, #c71993);
+  --loginButton-gradient:linear-gradient(90deg, #3264c2, #1484ec);
 }
 body{
   min-height: 100vh;
@@ -84,6 +93,7 @@ body.dark{
     --shadow-card-dashboard: 0 7px 25px rgba(255, 255, 255, 0.08);
     --shadow-card-dashboard-selected: 0 7px 25px rgba(255, 255, 255, 0.01);
     --table-border:1px solid rgba(255,255,255,0.1);
+    --loginButton-gradient: linear-gradient(90deg, #2aa12a, #289254);
 }
 /*=====Reusable CSS=====*/
 .sidebar .text{
@@ -440,14 +450,14 @@ body.dark .switch::before{
   position: absolute;
   bottom: 8rem;
   font-size: 2rem;
-  background: linear-gradient(45deg,#ff0034,#ffbc00);
+  background: var(--gradient1);
   padding: 12px;
   color: white;
   text-decoration: none;
   border-radius: 20px;
 }
 .frem a:hover{
-  background: linear-gradient(45deg, #9b0523, #ca9501);
+  background: var(--gradient2);
   font-size: 1.8rem;
 }
 /* ======404 desing End====== */
@@ -552,6 +562,12 @@ body.dark .switch::before{
   margin-top: 5px;
   transition: var(--tran-04);
 }
+.cardBox .card .Amount {
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-top: 5px;
+  transition: var(--tran-04);
+}
 .cardBox .card .iconBx{
   font-size: 3.5rem;
   color: var(--text-color);
@@ -615,12 +631,51 @@ body.dark .switch::before{
   color: var(--text-color2);
   border-bottom: var(--table-border);
 }
+.details .recentOrders table tbody img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.productName {
+  text-decoration: none;
+  color: var(--text-card-color);
+}
+
+
+.btn-delete {
+  position: relative;
+  color: var(--sidebar-color);
+  background: var(--status-2);
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.btn-edit {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  padding: 10px;
+  margin: 5px;
+  background: var(--status-5);
+  border-radius: 20px;
+}
+
+.action {
+  white-space: nowrap
+}
 .details .recentOrders table tr:last-child{
   border-bottom: none;
 }
 .details .recentOrders table tbody tr:hover {
   background:var(--text-card-color);
   color:var(--sidebar-color);
+}
+.details .recentOrders table tbody tr:hover .productName {
+  background: var(--text-card-color);
+  color: var(--sidebar-color);
 }
 .details .recentOrders table tr td{
   padding: 10px;
@@ -674,6 +729,7 @@ body.dark .switch::before{
   background: var(--sidebar-color);
   box-shadow: var(--shadow-card-dashboard);
   border-radius: 20px;
+  transition: var(--tran-04);
 }
 .recentCustomers .imgbx{
   position: relative;
@@ -689,6 +745,7 @@ body.dark .switch::before{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: var(--tran-04);
 }
 
 .recentCustomers table tr:hover{
@@ -720,6 +777,168 @@ body.dark .switch::before{
   color: var(--sidebar-color);
 }
 /* ===========Admin dashboard end ============== */
+/* ======Cart===== */
+
+.cartTable{
+  position: relative;
+  display: grid;
+  min-height: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-shadow: var(--shadow-card-dashboard);
+  border-radius: 20px;
+}
+.Title {
+  position: relative;
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--text-card-color);
+  left: 10%;
+}
+.icon-cart{
+  position: absolute;
+  font-size: 45px;
+  color: var(--text-card-color);
+  right: 10%;
+  top: 0;
+}
+
+.cartTable table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  
+}
+.cartTable table thead{
+  height: 50px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background:var(--text-card-color);
+  color: var(--sidebar-color);
+}
+.cartTable table tbody{
+  padding: 10px;
+  align-items: center;
+  transition: var(--tran-05);
+}
+.cartTable table tbody td{
+  width: 200px;
+  color: var(--text-color2);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: space-between;
+}
+/* ======Login Animated======= */
+.subBody{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--body-color);
+}
+.Login{
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  width: 370px;
+  height: 450px;
+  padding: 30px 30px;
+  flex-direction: column;
+  background: var(--primary-color-light);
+  border-radius: 50px 5px;
+  box-shadow: var(--shadow-card-dashboard);
+}
+.loginTitle{
+  color: var(--text-color2);
+  font-size: 38px;
+  font-weight: 500;
+  text-align: center;
+}
+.inputBox{
+  position: relative;
+  width: 350px;
+  margin-top: 35px;
+}
+.inputBox input{
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--sidebar-color);
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+input[type="submit"]{
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background:var(--text-card-color);
+  color: var(--sidebar-color);
+  padding: 5px;
+  margin-top: 50px;
+  border-radius: 90px;
+  font-weight: 600;
+  cursor: pointer;
+}
+input[type="submit"]:active{
+  background:var(--loginButton-gradient) ;
+  opacity: 0.8;
+}
+.inputBox span{
+  position: absolute;
+  left: 0;
+  padding: 20px 10px 10px;
+  font-size: 1em;
+  color: var(--text-color2);
+  pointer-events: none;
+  letter-spacing: 0.05em;
+  transition: var(--tran-05);
+}
+.inputBox input:valid~span,
+.inputBox input:focus~span{
+  color: var(--text-card-color);
+  transform: translateX(-10px) translateY(-30px);
+  font-size: 0.75em;
+}
+.inputBox i{
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  height: 2px;
+  background:var(--text-card-color);
+  border-radius: 4px;
+  transition: var(--tran-05);
+  pointer-events: none;
+  z-index: 9;
+}
+.inputBox input:valid~i,
+.inputBox input:focus~i{
+  height: 44px;
+}
+.links{
+  display: flex;
+  justify-content: space-between;
+}
+.links a{
+  margin: 25px 0;
+  font-size: 1em;
+  color: var(--text-card-color);
+  text-decoration: none;
+}
+.links a:hover,
+.links a:nth-child(2){
+  color: var(--status-2);
+}
+.links a:nth-child(2):hover{
+  text-decoration: underline 2px;
+  text-underline-offset: 5px;
+}
 /* ======Responsive design======== */
 @media(max-width:991px){
 
@@ -735,6 +954,9 @@ body.dark .switch::before{
     grid-template-columns: repeat(2,1fr);
     
   }
+    .cardProductsBox{
+      grid-template-columns: repeat(2, 1fr);
+    }
   .content {
       width: 75%;
     }

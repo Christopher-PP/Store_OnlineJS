@@ -7,4 +7,7 @@ router.get("/", (req, res) => {
 router.get("/myOrders", (req, res) => {
   res.render("cliente/orders");
 });
+router.get("/cart", (req, res) => {
+  res.render("cliente/carrito");
+});
 module.exports = router;
