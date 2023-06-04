@@ -4,11 +4,12 @@ const body = document.querySelector("body"),
   searchbox = body.querySelector(".search-box"),
   modeSwitch = body.querySelector(".toggle-switch"),
   modeText = body.querySelector(".mode-text"),
-  main = body.querySelector(".main");
+  main = body.querySelector(".main"),
+  hero = body.querySelector(".hero");
 
+console.log(hero);
 toggle.addEventListener("click", () => {
   sidebar.classList.toggle("close");
-  main.classList.toggle("close");
 });
 modeSwitch.addEventListener("click", () => {
   body.classList.toggle("dark");
